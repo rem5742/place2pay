@@ -26,27 +26,40 @@ class Main extends CI_Controller
 		);
 	}
 
+	public function register()
+	{
+		$data = array(
+			'transactionID' => $this->input->get_post('transactionID', TRUE),
+			'transactionState' => $this->input->get_post('transactionState', TRUE),
+			'redirectURL' => $this->input->get_post('redirectURL', TRUE)
+		);
+		$this->load->view('register', $data);
+	}
+
 	public function index()
 	{
-		$WS = new nusoap_client('https://test.placetopay.com/soap/pse/?wsdl', true);
+		// $WS = new nusoap_client('https://test.placetopay.com/soap/pse/?wsdl', true);
+		// $error = '';
 
-		if ($this->input->post())
-		{
-			$this->createTransaction();
-			print_r($this->parameters);
-			$transaction = $WS->call('createTransaction', $this->parameters);
-			// print_r($transaction);
-			// if ($transaction)
-			// 	header('Location: '.$transaction['createTransactionResult']['bankURL']);
-		}
-		else
-		{
-			$bancos = $WS->call('getBankList', $this->parameters);
-			$data = array();
-			$data['bancos'] = $bancos['getBankListResult']['item'];
+		// if ($this->input->post())
+		// {
+		// 	$this->createTransaction();
+		// 	$transaction = $WS->call('createTransaction', $this->parameters);
+		// 	if (isset($transaction['faultcode']))
+		// 		$error = $transaction['faultstring'];
+		// 	else
+		// 		if ($transaction)
+		// 			header('Location: '.$transaction['createTransactionResult']['bankURL']);
+		// }
 
-			$this->load->view('main', $data);
-		}
+		// $bancos = $WS->call('getBankList', $this->parameters);
+		// $data = array();
+		// $data['bancos'] = array();
+		// $data['error'] = '';
+		// $data['bancos'] = $bancos['getBankListResult']['item'];
+		// $data['error'] = $error;
+
+		// $this->load->view('main', $data);
 	}
 
 	private function createTransaction()

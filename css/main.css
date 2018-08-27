@@ -18,6 +18,11 @@ fieldset label
 	height: 2px;
 	background-color: #7dd755;
 }
+.error
+{
+	padding: 15px 0;
+	color: red;
+}
 #header
 {
 	text-align: center;

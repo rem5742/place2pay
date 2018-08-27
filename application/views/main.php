@@ -8,6 +8,8 @@
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="<?= base_url(); ?>css/pure-min.css" />
 	<link rel="stylesheet" href="<?= base_url(); ?>css/main.css" />
+	<link rel="stylesheet" href="<?= base_url(); ?>js/firebase.js" />
+	<link rel="stylesheet" href="<?= base_url(); ?>js/main.js" />
 </head>
 <body>
 	<div id="header">
@@ -33,6 +35,11 @@
 			</select>
 		</fieldset>
 		<button type="submit" class="pure-button pure-button-primary">Enviar</button>
+		<div class="error"><?= $error ?></div>
 	</form>
+	<div>
+		<!-- <label>Transacciones:</label> -->
+		<table></table>
+	</div>
 </body>
 </html>
